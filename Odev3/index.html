@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Tablo İşlemleri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="input.css">
+</head>
+
+<body>
+    <div class='section'>
+        <div class='container grid'>
+            <div class="content-header">
+                <i class='bx bx-menu header-icon'></i>
+                <span class="header-title">Tüm Markalar</span>
+            </div>
+
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Marka İsmi</th>
+                        <th class='edit'>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+
+
+                </tbody>
+            </table>
+
+            <button class='add'>Ekle</button>
+
+        </div>
+    </div>
+
+
+    <div class="modal modal-add">
+
+        <div class="overlay">
+            <div class="x-button x-add">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+            </div>
+            <div class="modalContainer">
+                <h2 class="modal-title">Marka Ekle</h2>
+                <form id="add_form">
+                    <div class='formInput'>
+                        <div class="form-label">Ad</div>
+                        <div class='input-group'>
+                            <input class="form__input brand-name" />
+                        </div>
+                    </div>
+
+                    <div class="button-submit">
+                        <button class="submitButton add-submit" type="submit">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ekleme Formu -->
+    <!-- <form id="add_form">
+		<label>Ad:</label>
+		<input type="text" name="name"><br>
+		<label>E-posta:</label>
+		<input type="text" name="email"><br>
+		<button type="button" id="add_button">Ekle</button>
+	</form> -->
+
+    <!-- Tablo -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Tabloyu yükle
+            load_table();
+
+            $(".add").click(function () {
+                $(".modal-add").css({ "display": "initial" })
+            })
+
+            $(".x-add").click(function () {
+                $(".modal-add").css({ "display": "none" })
+            })
+
+            // Ekle butonuna tıklandığında
+            $('.add-submit').click(function () {
+                // Form verilerini al
+                var data = {}
+                data["name"] = $(".brand-name").val();
+           
+                // Ajax isteği gönder
+                $.ajax({
+                    url: 'http://localhost:8080/api/brands/add',
+                    type: 'post',
+                    contentType: "application/json",
+                    data:JSON.stringify(data),
+                    dataType: 'json',
+                    success: function (response) {
+                        // Başarı mesajı göster
+                        alert(response);
+
+                        // Tabloyu yeniden yükle
+                        load_table();
+
+                        // Formu temizle
+                        $('#add_form')[0].reset();
+                    }
+                    
+                });
+            });
+
+            // Sil butonuna tıklandığında
+            $(document).on('click', '.delete_button', function () {
+                if (confirm("Bu kaydı silmek istediğinizden emin misiniz?")) {
+                    var id = $(this).data('id');
+
+                    // Ajax isteği gönder
+                    $.ajax({
+                        url: 'delete.php',
+                        type: 'post',
+                        data: { 'id': id },
+                        success: function (response) {
+                            // Başarı mesajı göster
+                            alert(response);
+
+                            // Tabloyu yeniden yükle
+                            load_table();
+                        }
+                    });
+                }
+            });
+
+            // Tabloyu yükleme fonksiyonu
+            function load_table() {
+                $.ajax({
+                    url: 'http://localhost:8080/api/brands/getList',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (response) {
+                        // Tabloyu temizle
+                        $('#table_body').empty();
+
+                        // Tabloya verileri ekle
+                        $.each(response, function (index, data) {
+                            $('#table_body').append(
+                                '<tr><td>' + data.id + '</td><td>' + data.name + '</td><td><button class="delete" data-id="' + data.id + '">Sil</button></td></tr>');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

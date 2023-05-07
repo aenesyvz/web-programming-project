@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+
+.dbox p span {
+    font-weight: 500;
+    color: #000;
+}
+
+
+
+.dbox .icon {
+    width: 60px;
+    height: 60px;
+    background-color: hsl(190, 64%, 22%);
+    margin-bottom: 20px;
+}
+
+.dbox .icon span {
+    font-size: 20px;
+    color: #fff;
+}
+
+.submit-btn {
+    background-color: hsl(190, 64%, 22%);
+}

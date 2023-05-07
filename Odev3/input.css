@@ -1,0 +1,36 @@
+.formInput{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+ 
+}
+.form-label{
+    padding: 0 1rem;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+    position: absolute;
+    z-index: 1;
+    left: 1rem;
+    top: -.5rem;
+    text-align: left;
+}
+
+.input-group{
+    position: relative;
+    margin: auto 0;
+}
+
+.form__input{
+    width: 300px;
+    /* background-color: rgba(203, 201, 201,.9); */
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border:1px solid seagreen;
+    border-radius: 1rem;
+}
