@@ -16,46 +16,40 @@
     <header>
         <nav class=" navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-
-                <!-- Left links -->
                 <h2 class="me-auto my-auto">AEY37</h2>
-                <!-- Left links -->
-
                 <div class="col-md-5">
                     <ul class=" d-flex justify-content-around list-unstyled my-auto">
                         <li>Anasayfa</li>
-                        <li ><a class="text-decoration-none text-dark" href="about.html">Hakkımda</a></li>
-                        <li>Projeler</li>
-                        <li ><a class="text-decoration-none  text-dark" href="contact.html">İletişim</a></li>
+                        <li class="border-bottom border-success"><a class="text-decoration-none text-dark"
+                                href="about.html">Hakkımda</a></li>
+                        <li><a class="text-decoration-none text-dark" href="project.html">Projeler</a></li>
+                        <li><a class="text-decoration-none  text-dark" href="contact.html">İletişim</a></li>
                     </ul>
 
                 </div>
-
-
-                <!-- Collapsible wrapper -->
             </div>
-            <!-- Container wrapper -->
         </nav>
-        <!-- Navbar -->
     </header>
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+
+    <section id="hero" class="z-index-2 d-flex flex-column justify-content-center align-items-center">
         <div class="container text-center text-md-left" data-aos="fade-up">
-            <h1>Benimle <span>Tanış</span></h1>
-            <h2>Hayalindeki projeyi gerçeğe dönüştürmeden önce benim hakkımda fikir edin!</h2>
+            <h1 class="title">Benimle <span>Tanış</span></h1>
+            <h2 class="sub__title">Hayalindeki projeyi gerçeğe dönüştürmeden önce benim hakkımda fikir edin!</h2>
 
         </div>
     </section>
 
-    <section class="mt-5 bg-white">
+    <section class="mt-5 pt-5 bg-white">
         <div class="container">
             <div class="row justify-content-center">
-                <h2 class="text-center">Hakkımda</h2>
+                <h2 class="text-center section__title">Hakkımda</h2>
+                <div class="col-md-12 w-25 border-bottom border-2 border-success section__border "></div>
             </div>
             <div class="row mt-5">
-                <div class="col-md-6">
+                <div class="col-md-6 about__img">
                     <img class="rounded mx-auto d-block  img-fluid" src="about__person.jpg" alt="">
                 </div>
-                <div class="col-md-6 ">
+                <div class="col-md-6 about__data">
                     Merhaba ben Alper Enes Yavuz.<br /><br /> 18 Şubat 2002 tarihinde Hakkari'de doğdum. Kastamonu'nun
                     ilçesi olan Tosya'da yaşamaktayım ve Tosyalıyım.
                     2020 yılında Tosya Fen Lisesi'nden mezun oldum. Ardından yine aynı yıl olan 2020 yılında Ondokuz
@@ -78,7 +72,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-4 ">
+                        <div class="col-md-4 counter">
                             <div class="d-flex align-items-center justify-content-center">
 
                                 <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
@@ -88,7 +82,7 @@
                             <p class="text-center">Tecrübe</p>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 counter">
                             <div class="d-flex align-items-center justify-content-center">
 
                                 <span data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1"
@@ -98,7 +92,7 @@
                             <p class="text-center">Bitirilen Proje</p>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 counter">
                             <div class="d-flex align-items-center justify-content-center">
 
                                 <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1"
@@ -117,27 +111,28 @@
 
     <section id="skills" class=" mt-5 py-5 bg-white">
         <div class="row justify-content-center">
-            <h2 class="text-center">Yeteneklerim</h2>
+            <h2 class="text-center section__title">Yeteneklerim</h2>
+            <div class="col-md-12 w-25 border-bottom border-2 border-success section__border"></div>
         </div>
         <div class="container mt-5">
 
             <div class="row ">
 
                 <div class="col-md-6">
-                    <div class="mt-3">
+                    <div class="mt-3 skill-l">
                         <div class="d-flex justify-content-between">
                             <h4>C#</h4>
-                            <h4>90%</h4>
+                            <h5>90%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 90%"
                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 skill-l">
                         <div class="d-flex justify-content-between">
                             <h4>ASP.NET</h4>
-                            <h4>80%</h4>
+                            <h5>80%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
@@ -145,20 +140,20 @@
                         </div>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="mt-3 skill-l">
                         <div class="d-flex justify-content-between">
                             <h4>Java</h4>
-                            <h4>70%</h4>
+                            <h5>70%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 skill-l">
                         <div class="d-flex justify-content-between">
                             <h4>CSS</h4>
-                            <h4>60%</h4>
+                            <h5>60%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
@@ -171,30 +166,30 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="mt-3">
+                    <div class="mt-3 skill-r">
                         <div class="d-flex justify-content-between">
                             <h4>React</h4>
-                            <h4>50%</h4>
+                            <h5>50%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-warning" role="progressbar" style="width: 50%"
                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 skill-r">
                         <div class="d-flex justify-content-between">
                             <h4>Angular</h4>
-                            <h4>60%</h4>
+                            <h5>60%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 skill-r">
                         <div class="d-flex justify-content-between">
                             <h4>Flutter</h4>
-                            <h4>50%</h4>
+                            <h5>50%</h5>
                         </div>
                         <div class="progress">
                             <div class="progress-bar bg-warning" role="progressbar" style="width: 50%"
@@ -213,9 +208,10 @@
 
     <section class="mt-5 p-5">
         <div class="row justify-content-center">
-            <h2 class="text-center">Referanslar</h2>
+            <h2 class="text-center section__title">Referanslar</h2>
+            <div class="col-md-12 w-25 border-bottom border-2 border-success section__border"></div>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="true">
+        <div id="carouselExampleIndicators" class="carousel slide mt-5 slider" data-bs-ride="true">
             <div class="carousel-indicators mb-0">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -239,7 +235,8 @@
                             </div>
                             <div class="col-md-6 my-5">
                                 <div class="user-content d-flex justify-content-center align-items-center">
-                                    <p class="text-center text-white  paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    <p class="text-center text-white  paragraph">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
                                         do eiusmod tempor
                                         incididunt
                                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -270,7 +267,8 @@
                             </div>
                             <div class="col-md-6 my-5">
                                 <div class="user-content d-flex justify-content-center align-items-center">
-                                    <p class="text-center text-white paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    <p class="text-center text-white paragraph">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
                                         do eiusmod tempor
                                         incididunt
                                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -301,7 +299,8 @@
                             </div>
                             <div class="col-md-6 my-5">
                                 <div class="user-content d-flex justify-content-center align-items-center">
-                                    <p class="text-center text-white paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    <p class="text-center text-white paragraph">Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
                                         do eiusmod tempor
                                         incididunt
                                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -314,7 +313,7 @@
                         </div>
 
 
-                     
+
 
 
                     </div>
@@ -333,12 +332,13 @@
         </div>
     </section>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
     <script>
         new PureCounter({
             selector: '.purecounter',
-            duration: 2,
-            delay: 10,
+            delay: 100,
+            duration: 300,
             repeat: false,
             decimals: 0,
             legacy: true,
@@ -354,6 +354,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+    
+    
+    <script src="main.js"></script>
+
 </body>
 
 </html>

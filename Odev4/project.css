@@ -1,14 +1,14 @@
-#contact {
+#project {
     width: 100%;
     height: 60vh;
-    background: url("contact_img.webp") center center;
+    background: url("project1.jpg") center center;
     background-size: cover;
     position: relative;
     margin-top: 50px;
     padding: 0;
   }
   
-  #contact:before {
+  #project:before {
     content: "";
     background: rgba(56, 64, 70, 0.7);
     position: absolute;
@@ -18,11 +18,11 @@
     right: 0;
   }
   
-  #contact .container {
+  #project .container {
     z-index: 2;
   }
   
-  #contact h1 {
+  #project h1 {
     margin: 0 0 10px 0;
     font-size: 48px;
     font-weight: 700;
@@ -30,14 +30,25 @@
     color: #fff;
   }
   
-  #contact h1 span {
+  #project h1 span {
     border-bottom: 4px solid #3498db;
   }
   
-  #contact h2 {
+  #project h2 {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 30px;
     font-size: 24px;
   }
+
   
- 
+  
+
+
+
+
+.redirectBtn{
+    background-color:hsl(190, 64%, 22%); 
+}
+.redirectBtn:hover .more__icon{
+    margin-left: .5rem;
+}
