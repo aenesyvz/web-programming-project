@@ -18,9 +18,7 @@
     right: 0;
   }
   
-  #hero .container {
-    z-index: 2;
-  }
+ 
   
   #hero h1 {
     margin: 0 0 10px 0;
@@ -39,21 +37,7 @@
     margin-bottom: 30px;
     font-size: 24px;
   }
-  
-  #hero .btn-get-started {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 2px;
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 4px;
-    transition: ease-in-out 0.3s;
-    color: #fff;
-    background: #3498db;
-    text-transform: uppercase;
-  }
-  
+
   #hero .btn-get-started:hover {
     background: #4ea5e0;
   }

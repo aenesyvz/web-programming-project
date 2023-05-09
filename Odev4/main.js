@@ -15,7 +15,7 @@ sr.reveal(`.sub__title,.section__border,.skill-r`,{
     interval:100
 })
 
-sr.reveal(`.about__img,.info`,{
+sr.reveal(`.about__img,.info,.indexBtn`,{
     origin:"top",
     interval: 100,
 })
