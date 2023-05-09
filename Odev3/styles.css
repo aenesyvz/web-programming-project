@@ -247,7 +247,7 @@
     margin: auto;
   }
   
-  .add, .add-submit{
+  .add, .add-submit,.update-submit{
     background-color: hsl(190, 64%, 22%);
     width: 100px;
     color: white;

@@ -55,7 +55,7 @@
     
   }
 
-  .modal-add{
+  .modal-add,.modal-update{
     display: none;
   }
   .overlay {

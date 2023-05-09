@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Calculator App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <section>
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item active"><span class="border">Calculator</span> </li>
+            <li class="navbar-item">Exchange Rate</li>
+            <li class="navbar-item">Unit Converter</li>
+        </ul>
+        <div class="result">
+            <div class="previous-operand previous__process"></div>
+            <div  class="current-operand current__process"></div>
+        </div>
+        <div class="grid">
+                <button class="operator clear__btn">C</button>
+                <button  class="operator back__btn" >DEL</button>
+                <button class="operator operator__btn" >%</button>
+                <button class="operator operator__btn" >/</button>
+                <button class="data-number">1</button>
+                <button class="data-number">2</button>
+                <button class="data-number">3</button>
+                <button class="operator operator__btn" >x</button>
+                <button class="data-number">4</button>
+                <button class="data-number">5</button>
+                <button class="data-number">6</button>
+                <button class="operator operator__btn" >+</button>
+                <button class="data-number">7</button>
+                <button class="data-number">8</button>
+                <button class="data-number">9</button>
+                <button class="operator operator__btn" >-</button>
+                <button class="data-number" >.</button>
+                <button class="data-number">0</button>
+                <button  class="col__span_two operator result__btn">=</button>
+        </div>
+    </div>
+   </section>
+
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

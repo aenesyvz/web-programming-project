@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow: hidden;
+    background-color: #ffffff;
+    min-height: 100vh;
+    background:
+        linear-gradient(to left top, rgba(0, 255, 255, 1) 0%/*bottom-right color*/, rgba(255, 0, 255, 0.5) 50% /*middle color*/, rgba(255, 255, 0, 1) 100% /*top-left color*/),
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+  }
+  
+  .container{  
+    margin: auto;
+    margin-top: 5rem;
+    max-width: 30rem;
+    height: 80vh;
+    background-color: black;
+
+  }
+  
+  .grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+  }
+  
+   button {
+    font-size: 36px;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, .9);
+    color: #ffffff;
+ 
+  }
+  
+   button:hover {
+    background-color:hsl(190, 64%, 22%); 
+  }
+  
+  .col__span_two {
+    grid-column: span 2;
+  }
+  
+  .result {
+    height: 7rem;
+    background-color: black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding :10px 15px 0 10px ;
+  }
+
+  .previous-operand {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  
+  .current-operand {
+     color: #ffffff;
+    font-size: 3rem;
+  }
+
+
+.navbar-list{
+    margin: 1rem;
+    padding-top: 1rem;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.navbar-item{
+    font-size: 18px;
+    font-style:bold ;
+    padding-top: 3px;
+    color:#ffffff;
+}
+
+.active{
+    color:#0ebed6;
+}
+.border{
+    border-bottom: 1px solid #0ebed6;
+}
+
+.operator,.cancel{
+    color: #0ebed6;
+}
