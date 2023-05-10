@@ -63,6 +63,8 @@ class Calculator {
             result = prevValue - currentValue;
         }else if(this.operator === "/"){
             result = prevValue / currentValue;
+        }else if(this.operator === "^"){
+            result = Math.pow(prevValue,currentValue);
         }
        
         this.currentOperator = result
@@ -125,16 +127,16 @@ backBtn.addEventListener('click', () => {
     calculator.show();
 });
 
-operatorBtn.forEach((button) => {
-    button.addEventListener('click', () => {
-        calculator.selectOperator(button.innerText);
+operatorBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        calculator.selectOperator(btn.innerText);
         calculator.show();
     })
 });
 
-numberBtn.forEach((button) => {
-    button.addEventListener('click', () => {
-        calculator.add(button.innerText);
+numberBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        calculator.add(btn.innerText);
         calculator.show();
     })
 })

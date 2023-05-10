@@ -1,44 +1,9 @@
-#contact {
-    width: 100%;
-    height: 60vh;
-    background: url("contact_img.webp") center center;
-    background-size: cover;
-    position: relative;
-    margin-top: 50px;
-    padding: 0;
-  }
-  
-  #contact:before {
-    content: "";
-    background: rgba(56, 64, 70, 0.7);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  #contact .container {
-    z-index: 2;
-  }
-  
-  #contact h1 {
-    margin: 0 0 10px 0;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
-    color: #fff;
-  }
-  
-  #contact h1 span {
-    border-bottom: 4px solid #3498db;
-  }
-  
-  #contact h2 {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 30px;
-    font-size: 24px;
-
-  }
-  
- 
+#contact:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}

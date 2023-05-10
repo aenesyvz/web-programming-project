@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Tablo İşlemleri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="input.css">
+</head>
+
+<body>
+    <div class='section'>
+        <div class='container grid'>
+            <div class="content-header">
+                <i class='bx bx-menu header-icon'></i>
+                <span class="header-title">Tüm Postlar</span>
+            </div>
+
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th class='edit'>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+
+
+                </tbody>
+            </table>
+
+            <button class='add'>Ekle</button>
+
+        </div>
+    </div>
+
+
+    <div class="modal modal-add">
+
+        <div class="overlay">
+            <div class="x-button x-add">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+            </div>
+            <div class="modalContainer">
+                <h2 class="modal-title">Post Ekle</h2>
+                <form id="add_form">
+                    <div class='formInput'>
+                        <div class="form-label">Başlık</div>
+                        <div class='input-group'>
+                            <input class="form__input add-brand-name" />
+                        </div>
+                    </div>
+
+                    <div class="button-submit">
+                        <button class="submitButton add-submit" type="submit">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal modal-update">
+
+        <div class="overlay">
+            <div class="x-button x-update">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+            </div>
+            <div class="modalContainer">
+                <h2 class="modal-title">Post Güncelle</h2>
+                <form id="update_form">
+                    <div class='formInput'>
+                        <div class="form-label">Başlık</div>
+                        <div class='input-group'>
+                            <input class="form__input update-brand-name" />
+                        </div>
+                    </div>
+
+                    <div class="button-submit">
+                        <button class="submitButton update-submit" type="submit">Güncelle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let updateId = 0;
+        $(document).ready(function () {
+            // Tabloyu yükle
+            load_table();
+
+
+            // ADD
+            $(".add").click(function () {
+                $(".modal-add").css({ "display": "initial" })
+            })
+
+            $(".x-add").click(function () {
+                $(".modal-add").css({ "display": "none" })
+            })
+
+            $('.add-submit').click(function () {
+
+                var data = {}
+                data["title"] = $(".add-brand-name").val();
+                data["userId"] = 1;
+
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                    type: 'post',
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    success: function (response) {
+                        load_table();
+                        $('#add_form')[0].reset();
+                    }
+
+                });
+            });
+
+            // SIL
+
+            $(document).on('click', '.delete', function () {
+
+                var id = $(this).data('id');
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/posts/' + id,
+                    type: 'DELETE',
+                    contentType: "application/json",
+                 
+                    success: function (response) {
+                        load_table();
+                    }
+                });
+
+            });
+
+
+            //UPDATE
+       
+            $(document).on('click', '.update', function () {
+                updateId = $(this).data('id');
+                var row = $(this).closest('tr');
+                var name = row.find('td:eq(1)').text();
+                $(".update-brand-name").val(name);
+
+                $(".modal-update").css({ "display": "initial" })
+            })
+
+            $(".x-update").click(function () {
+                $(".modal-update").css({ "display": "none" })
+            })
+
+            $(document).on('click', '.update-submit', function () {  
+                var data = {}
+                data["id"] = updateId;
+                data["userId"] = 1;
+                data["name"] = $(".update-brand-name").val();
+
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/users/1/albums/',
+                    type: 'PUT',
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    success: function (response) {
+                        load_table();
+                        updateId = 0;
+                        $('#update_form')[0].reset();
+                    }
+                });
+
+            });
+
+            function getData(){
+                return $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                    type: 'get',
+                    dataType: 'json',
+                })
+            }
+            // Tabloyu yükleme fonksiyonu
+            async function load_table() {
+                // $.ajax({
+                //     url: 'http://localhost:8080/api/brands/getList',
+                //     type: 'get',
+                //     dataType: 'json',
+                //     success: function (response) {
+                //         $('#table_body').empty();
+                //         $.each(response, function (index, data) {
+                //             $('#table_body').append(
+                //                 '<tr><td>' + data.id + '</td><td>' + data.name + '</td><td style="display:flex;gap:1rem;justify-content:center;"><button class="delete" data-id="' + data.id + '">Sil</button><button class="update" data-id="' + data.id + '">Güncelle</button></td></tr>');
+                //         });
+                //     }
+                // });
+                let response = await getData();
+                $('#table_body').empty();
+                $.each(response, function (index, data) {
+                             $('#table_body').append(
+                                 '<tr><td>' + data.id + '</td><td>' + data.title + '</td><td style="display:flex;gap:1rem;justify-content:center;"><button class="delete" data-id="' + data.id + '">Sil</button><button class="update a" data-id="' + data.id + '">Güncelle</button></td></tr>');
+                         });
+            }
+        });
+    </script>
+</body>
+
+</html>

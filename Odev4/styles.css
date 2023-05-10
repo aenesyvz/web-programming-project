@@ -1,100 +1,19 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
-    background-color: #fff;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-
-.dbox p span {
-    font-weight: 500;
-    color: #000;
+#home:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-
-
-.dbox .icon {
-    width: 60px;
-    height: 60px;
-    background-color: hsl(190, 64%, 22%);
-    margin-bottom: 20px;
-}
-
-.dbox .icon span {
-    font-size: 20px;
-    color: #fff;
-}
-
-.submit-btn {
-    background-color: hsl(190, 64%, 22%);
-}
-
-
-#home {
-    width: 100%;
-    min-height: 100vh;
-    background: url("project1.jpg") center center;
-    background-size: cover;
-    position: relative;
-    margin-top: 50px;
-    padding: 0;
-  }
-  
-  #home:before {
-    content: "";
-    background: rgba(56, 64, 70, 0.7);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  #home h1 {
-    margin: 0 0 10px 0;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
-    color: #fff;
-  }
-  
-  #home h1 span {
-    border-bottom: 4px solid #3498db;
-  }
-  
-  #hero h2 {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 30px;
-    font-size: 24px;
-  }
-
-  #hero .btn-get-started:hover {
-    background: #4ea5e0;
-  }
-
-
-
-  .redirectBtn{
-    background-color:hsl(190, 64%, 22%); 
-}
-.redirectBtn:hover .more__icon{
-    margin-left: .5rem;
-}
-
-
-
-#contact {
-  width: 100%;
-  height: 40vh;
-  background: url("contact_img.webp") center center;
-  background-size: cover;
-  position: relative;
-  margin-top: 50px;
-  padding: 0;
+.redirectBtn:hover .more__icon {
+  margin-left: .5rem;
 }
 
 #contact:before {
@@ -106,26 +25,3 @@ body {
   left: 0;
   right: 0;
 }
-
-#contact .container {
-  z-index: 2;
-}
-
-#contact h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
-}
-
-#contact h1 span {
-  border-bottom: 4px solid #3498db;
-}
-
-#contact h2 {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
