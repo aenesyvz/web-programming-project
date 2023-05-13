@@ -1,6 +1,6 @@
 #contact:before {
   content: "";
-  background: rgba(56, 64, 70, 0.7);
+  background: rgba(56, 64, 70, 0.5);
   position: absolute;
   bottom: 0;
   top: 0;
