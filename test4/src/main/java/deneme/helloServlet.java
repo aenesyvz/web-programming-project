@@ -58,6 +58,7 @@ public class helloServlet extends HttpServlet {
 
         request.setAttribute("user", user);
         request.getRequestDispatcher("info.jsp").forward(request, response);
+    	
     }
 
     private String getFileName(Part part) {

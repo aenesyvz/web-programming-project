@@ -12,7 +12,7 @@
 	<section>
     <div class="container">
        <h2 class="title">Kayit Ol</h2>
-        <form class="form" action="helloServlet"  method="POST" enctype="multipart/form-data"
+        <form class="form form2" action="worldServlet"  method="POST" 
 							>
                     <div class='formInput'>
                         <div class="form-label">Ad</div>
@@ -72,14 +72,7 @@
                         </div>
                            <p id="dateOfBirthError" style="color: red;position: absolute;margin-bottom: -50px"></p>
                     </div>
-                    
-                     <div class='formInput'>
-                        <div class="form-label">Profil Resmi</div>
-                        <div class='input-group'>
-                            <input class="form__input" id="file" name="file"  type="file"/>
-                        </div>
-                        <p id="imageError" style="color: red;position: absolute;margin-bottom: -50px"></p>
-                    </div>
+                   
                     <div class="button-submit">
                         <input class="submitButton" type="submit" value="Gonder"></input>
                     </div>
@@ -99,8 +92,6 @@
 			let existsForPassword = false;
 			let existsForPhoneNumber = false;
 			let existsForDateOfBirth = false;
-			let existsForImage = false;
-
 			
 			function isEmpty(input,elementId,errorMessage){
 				if(input.trim() === ""){
@@ -154,12 +145,8 @@
 				existsForPhoneNumber = isEmpty(phoneNumber,"#phoneNumberError","Telefon numarasi");
 			}
 			
-			function validateImage() {
-				let file = $('#file').val();
-				existsForImage = isEmpty(file,"#imageError","Dosya secmediniz");
-			}
 			
-			 $(".form").submit(function (e) {
+			 $(".form2").submit(function (e) {
 				   	e.preventDefault();
 				   	validateFirstName();
 				    validateLastName();
@@ -168,7 +155,6 @@
 				    validatePassword();
 				    validateDateOfBirth();
 				    validatePhoneNumber();
-				    validateImage();
 				    if (
 				    		!existsForFirstName &&
 							!existsForLastName &&
@@ -176,8 +162,7 @@
 							!existsForGender &&
 							!existsForPassword && 
 							!existsForPhoneNumber &&
-							!existsForDateOfBirth &&
-							!existsForImage
+							!existsForDateOfBirth
 				    ) {
 		                   this.submit(); 
 		   

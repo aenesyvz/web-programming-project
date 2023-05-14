@@ -122,10 +122,11 @@
                     data: JSON.stringify(data),
                     dataType: 'json',
                     success: function (response) {
-                        load_table();
                         $('#add_form')[0].reset();
                     }
 
+                }).done(function(response){
+                    load_table();
                 });
             });
 
@@ -140,8 +141,10 @@
                     contentType: "application/json",
                  
                     success: function (response) {
-                        load_table();
+                       
                     }
+                }).done(function(response){
+                    load_table();
                 });
 
             });
@@ -174,10 +177,13 @@
                     data: JSON.stringify(data),
                     dataType: 'json',
                     success: function (response) {
-                        load_table();
-                        updateId = 0;
+                      
+                        
                         $('#update_form')[0].reset();
                     }
+                }).done(function(response){
+                    updateId = 0;
+                    load_table();
                 });
 
             });
