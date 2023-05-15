@@ -1,0 +1,93 @@
+package deneme;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import entities.User;
+
+/**
+ * Servlet implementation class helloServlet
+ */
+@WebServlet("/helloServlet")
+@MultipartConfig(maxFileSize = 1073741824)
+public class helloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static int count = 1;
+    /**
+     * Default constructor. 
+     */
+    public helloServlet() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.sendRedirect("info.jsp");
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.sendRedirect("info.jsp");
+		User user = new User();
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPassword(request.getParameter("password"));
+		user.setDateOfBirth(request.getParameter("birthOfDate"));
+		user.setGender(request.getParameter("gender"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		
+		
+		 String uploadPath = getServletContext().getRealPath("/") + "uploads/";
+		    File uploadDir = new File(uploadPath);
+		    if (!uploadDir.exists()) {
+		      uploadDir.mkdir();
+		    }
+
+		    Part filePart = request.getPart("file");
+		    String fileName = getFileName(filePart);
+		    filePart.write(uploadPath + fileName);
+
+		    user.setImage(uploadPath+fileName);
+		    response.getWriter().println("Resim başarıyla yüklendi.");
+		
+		
+		request.setAttribute("user", user);
+		
+		request.getRequestDispatcher("info.jsp").forward(request, response);
+		//response.setContentType("text/html");
+		//PrintWriter out = response.getWriter();
+		//out.println(request.getParameter("firstName") + user.getImage());
+		
+	}
+	
+	private String getFileName(Part part) {
+	    String contentDisposition = part.getHeader("content-disposition");
+	    String[] parts = contentDisposition.split(";");
+	    for (String partItem : parts) {
+	      if (partItem.trim().startsWith("filename")) {
+	        return partItem.substring(partItem.indexOf('=') + 1).trim().replace("\"", "");
+	      }
+	    }
+	    return null;
+	  }
+
+}

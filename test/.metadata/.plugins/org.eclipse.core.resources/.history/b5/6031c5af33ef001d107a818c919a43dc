@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow: hidden;
+    min-height: 100vh;
+    background:
+        linear-gradient(to left top, rgba(0, 255, 255, 1) 0%/*bottom-right color*/, rgba(255, 0, 255, 0.5) 50% /*middle color*/, rgba(255, 255, 0, 1) 100% /*top-left color*/),
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+  }
+  
+  .container{  
+   margin:auto;
+    margin-top: 1rem;
+    max-width: 30rem;
+    height: 80vh;
+    background-color: #ffffff;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.096);
+    border-radius:3rem;
+  }
+  
+.title{
+	color: hsl(190, 64%, 22%);
+}
+
+
+.formInput{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+ 
+}
+.form-label{
+    padding: 0 1rem;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+    position: absolute;
+    z-index: 1;
+    left: 1rem;
+    top: -.5rem;
+    text-align: left;
+}
+
+.input-group{
+    position: relative;
+    margin: auto 0;
+}
+
+.form__input{
+    width: 300px;
+    /* background-color: rgba(203, 201, 201,.9); */
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border:1px solid seagreen;
+    border-radius: 1rem;
+}

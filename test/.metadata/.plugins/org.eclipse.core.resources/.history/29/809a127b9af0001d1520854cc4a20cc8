@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    display:flex;
+	justify-content:center;
+	align-items:center;
+    background:
+        linear-gradient(to left top, rgba(0, 255, 255, 1) 0%/*bottom-right color*/, rgba(255, 0, 255, 0.5) 50% /*middle color*/, rgba(255, 255, 0, 1) 100% /*top-left color*/),
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1))/*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
+  }
+  
+   img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .grid{
+  	display:grid;
+  	grid-template-columns:1fr 1fr;
+  }
+  .container{ 
+  	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	margin:auto; 
+   
+    padding:20px 10px;
+    background-color: #ffffff;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.096);
+    border-radius:3rem;
+  }
+  
+  .container-info{
+  display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	margin:auto; 
+   
+    padding:20px 10px;
+    background-color: #ffffff;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.096);
+    border-radius:3rem;
+  	width:60rem;
+  }
+  
+.title{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin:10px  auto;
+	color: hsl(190, 64%, 22%);
+}
+.displayImage{
+	 display: flex;
+    	align-items: center;
+    	justify-content: center;
+    
+}
+
+.form{
+	margin:30px;
+}
+.formInput{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+ 
+}
+.form-label{
+    padding: 0 1rem;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+    position: absolute;
+    z-index: 1;
+    left: 1rem;
+    top: -.5rem;
+    text-align: left;
+}
+
+.input-group{
+    position: relative;
+    margin: auto 0;
+}
+
+.form__input{
+    width: 300px;
+    /* background-color: rgba(203, 201, 201,.9); */
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border:1px solid seagreen;
+    border-radius: 1rem;
+}
+
+.submitButton{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:15px 25px;
+	margin:0 auto;
+	background-color:hsl(190, 64%, 22%);
+	color:#ffffff;
+	border:none;
+	border-radius:2rem;
+}
+

@@ -1,0 +1,69 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+    <div class="container">
+       <h2 class="title">Register</h2>
+        <div class="form" >
+                    <div class='formInput'>
+                        <div class="form-label">Ad</div>
+                        <div class='input-group'>
+                            <input class="form__input" id="firstName" name="firstName" value=${user.firstName} />
+                        </div>
+                    </div>
+                      <div class='formInput'>
+                        <div class="form-label">Soyad</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="lastName" />
+                        </div>
+                    </div>
+                    
+                     <div class='formInput'>
+                        <div class="form-label">Email</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="email" />
+                        </div>
+                    </div>
+                    
+                     <div class='formInput'>
+                        <div class="form-label">Sifre</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="password" />
+                        </div>
+                    </div>
+                   
+                    <div class='formInput'>
+                        <div class="form-label">Cep Telefonu</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="phoneNumber" />
+                        </div>
+                    </div>
+                    
+                     <div class='formInput'>
+                        <div class="form-label">Cinsiyet</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="gender" />
+                        </div>
+                    </div>
+                    
+                     <div class='formInput'>
+                        <div class="form-label">Dogum Tarihi</div>
+                        <div class='input-group'>
+                            <input class="form__input" name="birthOfDate" />
+                        </div>
+                    </div>
+                    
+
+                   
+                </div>
+		
+    </div>
+   </section>
+</body>
+</html>

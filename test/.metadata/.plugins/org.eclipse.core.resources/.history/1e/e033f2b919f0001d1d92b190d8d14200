@@ -1,0 +1,129 @@
+package deneme;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import entities.User;
+
+/**
+ * Servlet implementation class helloServlet
+ */
+@WebServlet("/helloServlet")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+maxFileSize = 1024 * 1024 * 10,      // 10MB
+maxRequestSize = 1024 * 1024 * 50)
+public class helloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static int count = 1;
+    /**
+     * Default constructor. 
+     */
+    public helloServlet() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.sendRedirect("info.jsp");
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.sendRedirect("info.jsp");
+		User user = new User();
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPassword(request.getParameter("password"));
+		user.setDateOfBirth(request.getParameter("dateOfBirth"));
+		user.setGender(request.getParameter("gender"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		
+		  String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
+	        
+	        // İstekten dosya kısmını alın
+	        Part filePart = request.getPart("file");
+	        
+	        // Dosyanın adını alın
+	        String fileName = getFileName(filePart);
+	        
+	        // Klasöre kaydedilecek dosya yolu oluşturun
+	        String filePath = uploadPath + File.separator + fileName;
+	        
+	        // Klasörü oluşturun (varsa atlayın)
+	        File uploadDir = new File(uploadPath);
+	        if (!uploadDir.exists()) {
+	            uploadDir.mkdir();
+	        }
+	        // Dosyanın benzersiz bir ad almasını sağlayın
+	        String uniqueFileName = getUniqueFileName(uploadPath, fileName);
+	        filePath = uploadPath + File.separator + uniqueFileName;
+	        // Dosyayı klasöre kaydedin
+	        try (InputStream fileContent = filePart.getInputStream()) {
+	            Files.copy(fileContent, new File(filePath).toPath());
+	        }
+	        
+	        // Dosya yolunu bir değişkene kaydedin
+	        String savedFilePath = "uploads" + File.separator + fileName;
+		    
+		    user.setImage(savedFilePath);
+		    
+		
+		
+		request.setAttribute("user", user);
+		
+		request.getRequestDispatcher("info.jsp").forward(request, response);
+		    //response.setContentType("text/html") qjdwdkoqDMEKQ;
+	        //response.getWriter().println("<img src='" + savedFilePath + "' alt='Yüklenen Resim'csczvdzvnj<cdm>");
+		
+	}
+	
+	private String getFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        String[] tokens = contentDisp.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename")) {
+                return token.substring(token.indexOf("=") + 2, token.length() - 1);
+            }
+        }
+        return "";
+    }
+	
+	private String getUniqueFileName(String uploadPath, String fileName) {
+	    File file = new File(uploadPath + File.separator + fileName);
+	    if (!file.exists()) {
+	        return fileName; // Dosya zaten mevcut değil, aynı adı kullanabiliriz
+	    }
+	    
+	    String baseName = fileName.substring(0, fileName.lastIndexOf("."));
+	    String extension = fileName.substring(fileName.lastIndexOf("."));
+	    String uniqueFileName = baseName + "_" + System.currentTimeMillis() + extension;
+	    
+	    // Dosya adının benzersiz olmasını sağlamak için tekrar kontrol edin
+	    File uniqueFile = new File(uploadPath + File.separator + uniqueFileName);
+	    while (uniqueFile.exists()) {
+	        uniqueFileName = baseName + "_" + System.currentTimeMillis() + extension;
+	        uniqueFile = new File(uploadPath + File.separator + uniqueFileName);
+	    }
+	    
+	    return uniqueFileName;
+	}
+
+}
